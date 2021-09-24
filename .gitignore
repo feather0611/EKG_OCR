@@ -1,0 +1,8 @@
+.DS_Store
+*.csv
+*.xlsx
+*.zip
+300EKG/
+dist/
+prod95/
+prod300/
