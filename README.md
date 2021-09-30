@@ -1,5 +1,4 @@
 ## Information
-***
 This repository provides two functions. The first is transfer dicom image format into PNG format. And the second one is doing OCR process with EKG data that in specfic format.
 ### Develop Environment
 Python 3.9.7
@@ -12,7 +11,6 @@ Python 3.9.7
 6. [OpenCV](https://github.com/opencv/opencv)
 
 ## Usage
-***
 1. Create an empty directory on the path you want.
 2. Make sure `Virtualenv` is already installed. If your Python environment not install `Virtualenv` yet. You can install it with pip.
 <pre>
