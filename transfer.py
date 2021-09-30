@@ -17,8 +17,8 @@ def load_dir(src_dir):
 # path to dicom source
 source = './300EKG/0004/'
 # path to output destination
-dist = './prod300/dist/'
-origin = './prod300/origin/'
+dist = './prod300/dist/'        # Path to store dicom files
+origin = './prod300/origin/'    # Path to store PNG files.
 
 patients = load_dir(source)
 
