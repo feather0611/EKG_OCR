@@ -67,9 +67,10 @@ python transfer.py
 </pre>
 
 You don't need to clean up separate directory into one directory. You can just change the source path and run several times, and the result will be added in the destination path.    
-9. Now we got PNG files that needed in OCR works. So you can change the path on line 26 of `main.py` into the directory path you just store PNG format image. For example:
+9. Now we got PNG files that needed in OCR works. So you can change the path on line 26-27 of `main.py` into the directory path you just store PNG format image and the path to store the raw EKG information part. For example:
 <pre>
 img_path = './prod300/dist/'
+raw_path = './prod300/raw/'
 </pre>
 10. Then run this script.
 <pre>
