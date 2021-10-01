@@ -13,10 +13,9 @@ def showimg(t, img):
 
 
 def image_ocr(cropped_image):
-    cv2.imshow('origin image', cropped_image)
     kernel = np.ones((1, 1), np.uint8)
-    ret, cropped_image = cv2.threshold(cropped_image, 200, 255, cv2.THRESH_BINARY)
-    showimg('Threshold', cropped_image)
+    # ret, cropped_image = cv2.threshold(cropped_image, 200, 255, cv2.THRESH_BINARY)
+    # showimg('Threshold', cropped_image)
     dilate_cropped_image = cv2.dilate(cropped_image, kernel, iterations=10)
     # dilate_cropped_image = cv2.dilate(dilate_cropped_image, kernel, iterations=10)
     # cv2.imshow('cropped image', cropped_image)
