@@ -1,5 +1,5 @@
 ## Information
-This repository provides two functions. The first is transfer dicom image format into PNG format. And the second one is doing OCR process with EKG data that in specfic format.
+This repository provides three functions. The first is transfer dicom image format into PNG format. Second is doing OCR process with EKG data that in specfic format, and it will crop the part contains raw image data.
 ### Develop Environment
 Python 3.9.7
 ### Required Modules
@@ -76,4 +76,4 @@ raw_path = './prod300/raw/'
 <pre>
 python main.py
 </pre>
-11. If everything is OK, you will get two files, `out.csv` and `err.csv`. The records on `out.csv` are basically correct. But maybe some little problem will still happen. The records on `err.csv` are records have problems obviously.
+11. If everything is OK, you will get two files and all the PNG files contain raw EKG data, `out.csv` and `err.csv`. The records on `out.csv` are basically correct. But maybe some little problem will still happen. The records on `err.csv` are records have problems obviously.
