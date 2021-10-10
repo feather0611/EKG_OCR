@@ -25,8 +25,8 @@ def image_ocr(cropped_image):
     return pt.image_to_string(dilate_cropped_image)
 
 
-img_path = './prod300/dist/'
-raw_path = './prod300/raw/'
+img_path = './prod20000/transfer/'
+raw_path = './prod20000/raw/'
 
 files = sorted(os.listdir(img_path))
 if '.DS_Store' in files:
@@ -56,7 +56,7 @@ for file in files:
         '|', '/')
     parts = content.split('/')
     for idx, part in enumerate(parts):
-        parts[idx] = parts[idx].replace('\n', '').replace(' ', '').replace('\x0c', '').replace('degrees', '')
+        parts[idx] = parts[idx].replace('\n', '').replace(' ', '').replace('\x0c', '').replace('degrees', '').replace('degree', '').replace('&6s','').replace(']', '1').replace('{', '')
     # print(parts)
 
     # comments part
@@ -77,7 +77,7 @@ for file in files:
 
     # crop the raw image part
     cropped_image = gray_img[int(height / 3) - 22:height - 93, 58:int(width) - 52]
-    cv2.imwrite(raw_path + info + '_raw.png', cropped_image)
+    cv2.imwrite(raw_path + info[0] + '_raw.png', cropped_image)
 
     info.extend(parts)
     info.append(comment)
