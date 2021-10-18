@@ -25,7 +25,7 @@ def image_ocr(cropped_image):
     return pt.image_to_string(dilate_cropped_image)
 
 
-img_path = './prod20000/transfer/'
+img_path = './prod20000/transfer2/'
 raw_path = './prod20000/raw/'
 
 files = sorted(os.listdir(img_path))
@@ -40,6 +40,7 @@ for file in files:
     info = [file.replace('.png', '')]
     print(f'\n\nImage: {file}')
     img = cv2.imread(img_path + file)
+    img = cv2.resize(img, (1674, 1174), interpolation=cv2.INTER_AREA)
     # if debug:
     #     cv2.imshow('1 org image', img)
 
@@ -53,14 +54,17 @@ for file in files:
     cropped_image = gray_img[100:int(height / 3) - 25, 195:365]
     content = image_ocr(cropped_image)
     content = content.replace('ms', '/').replace('i', '1').replace('A', '4').replace('~', '-').replace('.', '').replace(
-        '|', '/')
+        '|', '/').replace('&6s','').replace(']', '1').replace('{', '')
     parts = content.split('/')
     for idx, part in enumerate(parts):
-        parts[idx] = parts[idx].replace('\n', '').replace(' ', '').replace('\x0c', '').replace('degrees', '').replace('degree', '').replace('&6s','').replace(']', '1').replace('{', '')
+        parts[idx] = parts[idx].replace('\n', '').replace(' ', '').replace('\x0c', '').replace('degrees', '').replace('degree', '')
     # print(parts)
 
     # comments part
-    cropped_image = gray_img[100:int(height / 3) - 25, 365:int(width)]
+    cropped_image = gray_img[100:int(height / 3) - 25, 365:int(width)-700]
+    # cv2.imshow('123', cropped_image)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
     comment = image_ocr(cropped_image)
     comment = comment.strip()
     comment = comment.replace('$T', 'ST').replace('*#*', '***').replace('Ist', '1st').replace('\n\n', '\n')
